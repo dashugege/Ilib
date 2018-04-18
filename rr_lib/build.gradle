@@ -35,14 +35,14 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
 
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.8'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
 
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:converter-scalars:+'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.alibaba:fastjson:1.1.67.android'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:+'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.alibaba:fastjson:1.1.67.android'
 
 
 }
@@ -60,20 +60,20 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'CommonUtil'     //项目描述
+                name 'Ilib'     //项目描述
                 url siteUrl
                 // Set your license
                 licenses {
                     license {
-                        name 'The CommonUtil Software License, Version 1.0.0'
+                        name 'The Ilib Software License, Version 1.0.0'
                         url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
                 developers {
                     developer {
-                        id 'caijinabraham'        //填写开发者的一些基本信息
-                        name 'caijinabraham'    //填写开发者的一些基本信息
-                        email 'caijinabraham@outlook.com'   //填写开发者的一些基本信息
+                        id 'xiaomu'        //填写开发者的一些基本信息
+                        name 'xiaomu'    //填写开发者的一些基本信息
+                        email 'hongjiang1018@icloud.com'   //填写开发者的一些基本信息
                     }
                 }
                 scm {
@@ -113,16 +113,19 @@ Properties properties = new Properties()
 properties.load(project.file('local.properties').newDataInputStream())
 bintray {
 //    userOrg=properties.getProperty("bintray.user")
-    user = properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
-    key = properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
+    user = "xiaomu" // properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
+    key = "20d2e160bc50a658ef8c62a274b25c2ed041edde" //properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "CommonUtil"    //发布到JCenter上的项目名字，必须填写，对应com.squareup.okhttp3:okhttp:3.4.1中的okhttp
-        publishVersion = ‘1.0.0’//发布到JCenter上的项目版本号
+        name = "Ilib"    //发布到JCenter上的项目名字，必须填写，对应com.squareup.okhttp3:okhttp:3.4.1中的okhttp
+//        publishVersion = '1.0.0'  //发布到JCenter上的项目版本号
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
+        version{
+            name = '1.0.0'
+        }
     }
 }
