@@ -1,5 +1,6 @@
 package com.common.rr_lib.utils;
 
+import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -93,6 +94,9 @@ public final class RetrofitUtils {
         }
 
         public Builder context(Context context){
+            if(!(context instanceof Application)){
+                throw new IllegalArgumentException("Suggested context is ApplicationContext");
+            }
             this.context = context;
             return this;
         }
