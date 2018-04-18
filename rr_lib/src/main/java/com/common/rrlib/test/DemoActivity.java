@@ -1,25 +1,44 @@
-package com.example.administrator.mvp_rr_lib;
+package com.common.rrlib.test;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.common.rrlib.mvp.AbstractBaseActivity;
 import com.common.rrlib.subscriber.AbstractStringSubscriber;
 import com.common.rrlib.utils.IHttp;
 import com.common.rrlib.utils.RetrofitUtils;
 
-public class MainActivity extends AppCompatActivity {
-//    https://blog.csdn.net/u014727709/article/details/71104201
-//    API Key
-//Your API key is:20d2e160bc50a658ef8c62a274b25c2ed041edde
+public class DemoActivity extends AbstractBaseActivity<DemonIView,DemonPresenter> implements DemonIView{
+
+
+    @Override
+    protected DemonPresenter initPresenter() {
+        return new DemonPresenter();
+    }
+
+    @Override
+    protected int attachLayoutRes() {
+        return 0;
+    }
+
+
+
+    @Override
+    protected void initView() {
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_demo);
+
+
 
         RetrofitUtils builder =  new RetrofitUtils.Builder()
                 .addLog(true)
                 .baseurl("http://qhb.2dyt.com/")
-                .context(getApplicationContext())
+                .context(this)
                 .build();
 
 
@@ -33,14 +52,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onErrorResponse(int code) {
 
-                System.out.println("code = " + code + Thread.currentThread().getName());
-
             }
         });
-
 
 
     }
 
 
+    @Override
+    public void onResponse(String tag, Object v) {
+
+    }
+
+    @Override
+    public void onErrorResponse(int code) {
+
+    }
 }
