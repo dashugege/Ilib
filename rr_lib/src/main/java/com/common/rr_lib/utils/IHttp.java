@@ -44,7 +44,14 @@ public class IHttp {
         if(TextUtils.isEmpty(url)){
             throw new NullPointerException("parameter error");
         }
-        CommonUtils.subscribe(RetrofitUtils.apiService.get(url),subscriber);
+        if(subscriber instanceof AbstractBeanSubscriber){
+            AbstractBeanSubscriber beanSubscriber = (AbstractBeanSubscriber)subscriber ;
+            CommonUtils.subscribe(RetrofitUtils.apiService.get(url),subscriber,true);
+        }
+        if(subscriber instanceof AbstractStringSubscriber){
+            AbstractStringSubscriber stringSubscriber = (AbstractStringSubscriber)subscriber ;
+            CommonUtils.subscribe(RetrofitUtils.apiService.get(url),subscriber,false);
+        }
     }
 
 
@@ -67,12 +74,13 @@ public class IHttp {
         if(subscriber instanceof AbstractBeanSubscriber){
             AbstractBeanSubscriber beanSubscriber = (AbstractBeanSubscriber)subscriber ;
             beanSubscriber.setTag(tag);
+            CommonUtils.subscribe(RetrofitUtils.apiService.get(url),subscriber,true);
         }
         if(subscriber instanceof AbstractStringSubscriber){
             AbstractStringSubscriber stringSubscriber = (AbstractStringSubscriber)subscriber ;
             stringSubscriber.setTag(tag);
+            CommonUtils.subscribe(RetrofitUtils.apiService.get(url),subscriber,false);
         }
-        CommonUtils.subscribe(RetrofitUtils.apiService.get(url),subscriber);
     }
 
 
@@ -91,8 +99,14 @@ public class IHttp {
         if(TextUtils.isEmpty(url) || map == null ){
             throw new NullPointerException("url or parameter is null");
         }
-
-        CommonUtils.subscribe(RetrofitUtils.apiService.post(url,map),subscriber);
+        if(subscriber instanceof AbstractBeanSubscriber){
+            AbstractBeanSubscriber beanSubscriber = (AbstractBeanSubscriber)subscriber ;
+            CommonUtils.subscribe(RetrofitUtils.apiService.post(url,map),subscriber,false);
+        }
+        if(subscriber instanceof AbstractStringSubscriber){
+            AbstractStringSubscriber stringSubscriber = (AbstractStringSubscriber)subscriber ;
+            CommonUtils.subscribe(RetrofitUtils.apiService.post(url,map),subscriber,true);
+        }
 
     }
 
@@ -121,13 +135,14 @@ public class IHttp {
         if(subscriber instanceof AbstractBeanSubscriber){
             AbstractBeanSubscriber beanSubscriber = (AbstractBeanSubscriber)subscriber ;
             beanSubscriber.setTag(tag);
+            CommonUtils.subscribe(RetrofitUtils.apiService.post(url,map),subscriber,false);
         }
         if(subscriber instanceof AbstractStringSubscriber){
             AbstractStringSubscriber stringSubscriber = (AbstractStringSubscriber)subscriber ;
             stringSubscriber.setTag(tag);
+            CommonUtils.subscribe(RetrofitUtils.apiService.post(url,map),subscriber,true);
         }
 
-        CommonUtils.subscribe(RetrofitUtils.apiService.post(url,map),subscriber);
 
     }
 

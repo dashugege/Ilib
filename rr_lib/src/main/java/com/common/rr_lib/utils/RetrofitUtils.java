@@ -46,7 +46,7 @@ public final class RetrofitUtils {
 
 
 
-    Retrofit getInstance(Context context){
+    private Retrofit getInstance(Context context){
         if(INSTANCE == null){
             synchronized (RetrofitUtils.class){
                 if (INSTANCE == null){

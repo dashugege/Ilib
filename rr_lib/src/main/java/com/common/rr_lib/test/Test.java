@@ -30,7 +30,7 @@ public class Test {
 
 
 
-
+//
 //        RetrofitUtils builder =  new RetrofitUtils.Builder()
 //                .addLog(true)
 //                .baseurl("http://qhb.2dyt.com/")

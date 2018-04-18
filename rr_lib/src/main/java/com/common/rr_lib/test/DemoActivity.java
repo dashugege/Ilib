@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 import com.common.rr_lib.R;
 import com.common.rr_lib.mvp.AbstractBaseActivity;
+import com.common.rr_lib.subscriber.AbstractStringSubscriber;
+import com.common.rr_lib.utils.IHttp;
+import com.common.rr_lib.utils.RetrofitUtils;
 
 public class DemoActivity extends AbstractBaseActivity<DemonIView,DemonPresenter> implements DemonIView{
 
@@ -31,6 +34,27 @@ public class DemoActivity extends AbstractBaseActivity<DemonIView,DemonPresenter
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_demo);
 
+
+
+        RetrofitUtils builder =  new RetrofitUtils.Builder()
+                .addLog(true)
+                .baseurl("http://qhb.2dyt.com/")
+                .context(this)
+                .build();
+
+
+        IHttp.get("ToDay/register", new AbstractStringSubscriber() {
+            @Override
+            protected void onResponse(String tag, String t) {
+                System.out.println("tag = " + tag);
+                System.out.println("t = " + t);
+            }
+
+            @Override
+            protected void onErrorResponse(int code) {
+
+            }
+        });
 
 
     }

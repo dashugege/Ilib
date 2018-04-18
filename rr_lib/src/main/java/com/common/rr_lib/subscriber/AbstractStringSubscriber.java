@@ -19,7 +19,7 @@ import java.lang.reflect.Type;
  */
 public abstract class AbstractStringSubscriber implements Subscriber<String> {
 
-    private static  String MTAG = "default" ;
+    private  String MTAG = "default" ;
 
     /**
      * 成功回调
@@ -55,10 +55,6 @@ public abstract class AbstractStringSubscriber implements Subscriber<String> {
     public void onNext(String result) {
         try {
             onResponse(MTAG,result);
-        } catch (JsonSyntaxException e) {
-            e.printStackTrace();
-            IHttpException exception =  IFactoryException.createException(e);
-            onErrorResponse(exception.getCode());
         }catch (Exception e){
             e.printStackTrace();
         }finally {

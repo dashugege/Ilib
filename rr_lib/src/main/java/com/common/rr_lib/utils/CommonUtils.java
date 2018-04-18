@@ -22,12 +22,12 @@ import retrofit2.Retrofit;
 public final class CommonUtils {
 
 
-    public static <T> void subscribe(Flowable<T> flowable, Subscriber<T> subscriber) {
+    public static <T> void subscribe(Flowable<T> flowable, Subscriber<T> subscriber,boolean subscriberOnMainThread) {
         flowable
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .retryWhen(new RetryWithDelay(3,2))
+                .observeOn(subscriberOnMainThread ? AndroidSchedulers.mainThread() : Schedulers.io())
+                .retryWhen(new RetryWithDelay(3,1))
                 .subscribe(subscriber);
     }
 
