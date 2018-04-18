@@ -1,2 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.common.rr_lib" />
+    package="com.common.rr_lib">
+
+    <application>
+        <activity
+            android:name=".mvp.AbstractBaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".test.DemoActivity"></activity>
+    </application>
+
+</manifest>

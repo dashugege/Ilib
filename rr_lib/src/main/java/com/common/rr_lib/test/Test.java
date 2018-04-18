@@ -1,4 +1,4 @@
-package com.common.rr_lib;
+package com.common.rr_lib.test;
 
 import com.common.rr_lib.subscriber.AbstractStringSubscriber;
 import com.common.rr_lib.utils.IHttp;
@@ -6,11 +6,16 @@ import com.common.rr_lib.utils.RetrofitUtils;
 
 /**
  * Created by muhanxi on 18/1/29.
+ *
+ * test network request demon
+ *
  */
 
 public class Test {
 
     /**
+     *
+     *
      *  请求添加标记 自动切换观察者和被观察者
      *  cookie 自动管理
      *  自动打印每次网络请求日志
