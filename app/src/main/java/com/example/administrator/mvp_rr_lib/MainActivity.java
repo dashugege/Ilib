@@ -10,11 +10,17 @@ import com.common.rrlib.utils.RetrofitUtils;
 public class MainActivity extends AppCompatActivity {
 //    https://blog.csdn.net/u014727709/article/details/71104201
 //    API Key
-//Your API key is:20d2e160bc50a658ef8c62a274b25c2ed041edde
+//Your API key is:20d2e160bc50a658ef8c62a274b25c2ed041edd1e
+
+//    gradlew install
+//    gradlew bintrayUpload
+//    gradlew clean build bintrayUpload -PdryRun=false
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
 
         RetrofitUtils builder =  new RetrofitUtils.Builder()
                 .addLog(true)
@@ -23,20 +29,20 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 
-        IHttp.get("ToDay/register", new AbstractStringSubscriber() {
-            @Override
-            protected void onResponse(String tag, String t) {
-                System.out.println("tag = " + tag);
-                System.out.println("t = " + t);
-            }
-
-            @Override
-            protected void onErrorResponse(int code) {
-
-                System.out.println("code = " + code + Thread.currentThread().getName());
-
-            }
-        });
+//        IHttp.get("ToDay/register", new AbstractStringSubscriber() {
+//            @Override
+//            protected void onResponse(String tag, String t) {
+//                System.out.println("tag = " + tag);
+//                System.out.println("t = " + t);
+//            }
+//
+//            @Override
+//            protected void onErrorResponse(int code) {
+//
+//                System.out.println("code = " + code + Thread.currentThread().getName());
+//
+//            }
+//        });
 
 
 

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 
+
 android {
     compileSdkVersion 26
 
@@ -8,8 +9,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 1200
+        versionName "1.2.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -43,15 +44,21 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-scalars:+'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.alibaba:fastjson:1.1.67.android'
-
-
 }
+
+
+
+
+
 
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
+
 def siteUrl = 'https://github.com/dashugege/Ilib.git'      // 项目的主页   这个是说明，可随便填
 def gitUrl = 'https://github.com/dashugege/Ilib.git'      // Git仓库的url  这个是说明，可随便填
 group = "com.common.rrlib"    // 这里是groupId ,必须填写  一般填你唯一的包名，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3部分
+// 版本号，下次更新是只需要更改版本号即可
+version = "1.2.0"
 
 install {
     repositories.mavenInstaller {
@@ -65,7 +72,7 @@ install {
                 // Set your license
                 licenses {
                     license {
-                        name 'The Ilib Software License, Version 1.0.0'
+                        name 'The Ilib Software License, Version 1.2.0'
                         url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
@@ -93,8 +100,8 @@ task javadoc(type: Javadoc) {
     options {
         encoding "UTF-8"
         charSet 'UTF-8'
-        author true
-        version true
+        options.author true
+        options.version true
         links "http://docs.oracle.com/javase/7/docs/api"
     }
     source = android.sourceSets.main.java.srcDirs
@@ -114,18 +121,15 @@ properties.load(project.file('local.properties').newDataInputStream())
 bintray {
 //    userOrg=properties.getProperty("bintray.user")
     user = "xiaomu" // properties.getProperty("bintray.user")    //读取 local.properties 文件里面的 bintray.user
-    key = "20d2e160bc50a658ef8c62a274b25c2ed041edde" //properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
+    key = "20d2e160bc50a658ef8c62a274b25c2ed041edde1" //properties.getProperty("bintray.apikey")   //读取 local.properties 文件里面的 bintray.apikey
     configurations = ['archives']
     pkg {
         repo = "maven"
         name = "Ilib"    //发布到JCenter上的项目名字，必须填写，对应com.squareup.okhttp3:okhttp:3.4.1中的okhttp
-//        publishVersion = '1.0.0'  //发布到JCenter上的项目版本号
+//        publishVersion = '1.1.0'  //发布到JCenter上的项目版本号
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
-        version{
-            name = '1.0.0'
-        }
     }
 }

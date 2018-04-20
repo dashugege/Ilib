@@ -1,4 +1,4 @@
-package com.common.rrlib.test;
+package com.example.administrator.mvp_rr_lib.test;
 
 /**
  * Created by muhanxi on 18/1/29.

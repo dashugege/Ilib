@@ -3,11 +3,7 @@
     package="com.common.rrlib">
 
     <application>
-        <activity
-            android:name="com.common.rrlib.mvp.AbstractBaseActivity"
-            android:label="@string/title_activity_base"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.common.rrlib.test.DemoActivity"></activity>
+
     </application>
 
 </manifest>

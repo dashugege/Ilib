@@ -1,4 +1,4 @@
-package com.common.rrlib.test;
+package com.example.administrator.mvp_rr_lib.test;
 
 import com.common.rrlib.mvp.AbstractBasePresenter;
 

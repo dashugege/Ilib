@@ -1,4 +1,4 @@
-package com.common.rrlib.test;
+package com.example.administrator.mvp_rr_lib.test;
 
 import android.os.Bundle;
 
@@ -7,7 +7,7 @@ import com.common.rrlib.subscriber.AbstractStringSubscriber;
 import com.common.rrlib.utils.IHttp;
 import com.common.rrlib.utils.RetrofitUtils;
 
-public class DemoActivity extends AbstractBaseActivity<DemonIView,DemonPresenter> implements DemonIView{
+public class DemoActivity extends AbstractBaseActivity<DemonIView,DemonPresenter> implements DemonIView {
 
 
     @Override
@@ -42,18 +42,18 @@ public class DemoActivity extends AbstractBaseActivity<DemonIView,DemonPresenter
                 .build();
 
 
-        IHttp.get("ToDay/register", new AbstractStringSubscriber() {
-            @Override
-            protected void onResponse(String tag, String t) {
-                System.out.println("tag = " + tag);
-                System.out.println("t = " + t);
-            }
-
-            @Override
-            protected void onErrorResponse(int code) {
-
-            }
-        });
+//        IHttp.get("ToDay/register", new AbstractStringSubscriber() {
+//            @Override
+//            protected void onResponse(String tag, String t) {
+//                System.out.println("tag = " + tag);
+//                System.out.println("t = " + t);
+//            }
+//
+//            @Override
+//            protected void onErrorResponse(int code) {
+//
+//            }
+//        });
 
 
     }
