@@ -10,12 +10,15 @@ import com.common.rrlib.utils.RetrofitUtils;
 public class MainActivity extends AppCompatActivity {
 //    https://blog.csdn.net/u014727709/article/details/71104201
 //    API Key
-//Your API key is:20d2e160bc50a658ef8c62a274b25c2ed041edd1e
+//Your API key is:20d2e160bc50a658ef8c62a274b25c2ed041edde1
 
 //    gradlew install
 //    gradlew bintrayUpload
 //    gradlew clean build bintrayUpload -PdryRun=false
 
+//    maven {
+//        url 'https://dl.bintray.com/xiaomu/maven/'
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
