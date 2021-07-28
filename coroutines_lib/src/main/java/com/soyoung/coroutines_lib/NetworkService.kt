@@ -19,7 +19,7 @@ class NetworkService {
     }
 
     var retrofit = Retrofit.Builder()
-        .baseUrl("https://api26.sy.soyoung.com/")
+        .baseUrl("https://")
         .client(OkHttpClient())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
