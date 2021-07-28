@@ -1,7 +1,8 @@
 package com.common.rrlib.mvp;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by muhanxi on 2018/4/18.

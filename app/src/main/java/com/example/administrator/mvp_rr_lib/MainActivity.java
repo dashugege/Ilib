@@ -1,11 +1,14 @@
 package com.example.administrator.mvp_rr_lib;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.common.rrlib.subscriber.AbstractStringSubscriber;
 import com.common.rrlib.utils.IHttp;
 import com.common.rrlib.utils.RetrofitUtils;
+import com.example.administrator.mvp_rr_lib.testcoroutines.MainCoroutinesActivity;
 
 public class MainActivity extends AppCompatActivity {
 //    https://blog.csdn.net/u014727709/article/details/71104201
@@ -25,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
 
-        RetrofitUtils builder =  new RetrofitUtils.Builder()
-                .addLog(true)
-                .baseurl("http://qhb.2dyt.com/")
-                .context(getApplicationContext())
-                .build();
+//        RetrofitUtils builder =  new RetrofitUtils.Builder()
+//                .addLog(true)
+//                .baseurl("http://qhb.2dyt.com/")
+//                .context(getApplicationContext())
+//                .build();
 
 
 //        IHttp.get("ToDay/register", new AbstractStringSubscriber() {
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
+       Intent intent =  new Intent();
+       intent.setClass(this, MainCoroutinesActivity.class);
+        startActivity(intent);
 
 
     }
